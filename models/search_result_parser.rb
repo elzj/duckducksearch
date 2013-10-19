@@ -25,7 +25,7 @@ class SearchResultParser
     result_div.css('div.results_links div.links_main.links_deep')
   end
 
-  # Returns a hash 
+  # Returns each result as a hash with url, title, and description keys
   def formatted_result(result)
     link = result.css("a.large")
     return if link_is_ad?(link)

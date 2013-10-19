@@ -10,6 +10,13 @@ class DuckDuckSearch
   def initialize(term)
     @term = term
   end
+
+  def results
+    parser = SearchResultParser.new(results_page.content)
+    parser.results
+  end
+  
+  private
   
   def search_page
     agent = Mechanize.new
@@ -24,11 +31,6 @@ class DuckDuckSearch
   
   def results_page
     search_form.submit
-  end
-
-  def results
-    parser = SearchResultParser.new(results_page.content)
-    parser.results
   end
 
 end
