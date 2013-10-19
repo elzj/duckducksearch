@@ -6,7 +6,7 @@ get '/' do
 end
 
 get '/search' do
-  if params[:query].blank?
+  if params[:query].nil? || params[:query].empty?
     response = { errors: "Please supply a query option" }
   else
     search = DuckDuckSearch.new(params[:query])
