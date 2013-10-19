@@ -7,10 +7,10 @@ end
 
 get '/search' do
   if params[:query].nil? || params[:query].empty?
-    response = { errors: "Please supply a query option" }
+    status 400
+    JSON.generate(message: "Please supply a query")
   else
     search = DuckDuckSearch.new(params[:query])
-    response = search.results
+    JSON.pretty_generate(search.results)
   end
-  JSON.pretty_generate(response)
 end
