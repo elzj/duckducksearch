@@ -12,6 +12,11 @@ class AppTest < MiniTest::Unit::TestCase
     get '/'
     assert last_response.ok?
   end
+  
+  def test_empty_search
+    get '/search'
+    assert_equal 400, last_response.status
+  end
 
   def test_search
     get '/search?query=cupcakes'
