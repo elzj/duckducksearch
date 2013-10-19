@@ -6,6 +6,11 @@ get '/' do
 end
 
 get '/search' do
-  search = DuckDuckSearch.new(params[:query])
-  JSON.pretty_generate(search.results)
+  if params[:query].blank?
+    response = { errors: "Please supply a query option" }
+  else
+    search = DuckDuckSearch.new(params[:query])
+    response = search.results
+  end
+  JSON.pretty_generate(response)
 end
