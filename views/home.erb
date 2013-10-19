@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Quack</title>
+    <link rel="stylesheet" href="search.css">
+  </head>
+  <body>
+    <div id="main">
+      <h1>Search for something:</h1>
+      <form action="/search" id="search" method="get">
+        <input type="text" id="query" name="query" />
+        <input type="submit" />
+      </form>
+      <div id="results"></div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="search.js"></script>
+  </body>
+</html>
